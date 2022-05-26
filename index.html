@@ -1,1 +1,32 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Movies List</title>
+</head>
+<body>
+
+    <section class="form-container">
+        <form>
+            <input type="text" id="movieName" name="movie" placeholder="Enter the movie name" required>
+            <input type="number" id="releasedYear" name="year" placeholder="YYYY" min="1950" max="2022" required>
+            <input type="submit" value="Add Movie">
+        </form>
+    </section>
+
+    <section class="movie-list-container">
+        <h2>
+            Movies List
+        </h2>
+
+        <ul class="movie-list">
+            <!-- movie list will appear here -->
+        </ul>
+    </section>
+    
+</body>
+</html>
