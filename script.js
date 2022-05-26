@@ -5,6 +5,7 @@ const releasedYear = document.getElementById('releasedYear');
 
 const movieList = document.querySelector('.movie-list');
 
+// submit form to get the list item and append it in ul
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
     // console.log('form submitted');
@@ -17,7 +18,7 @@ form.addEventListener('submit', (e)=>{
     movieListItem.innerHTML = `
         <div class="movie-info">
             <input type="text" value="${movieNameInput}" readonly>                
-            <input type="number" value="${releasedYearInput}" readonly>
+            <input type="number" value="${releasedYearInput}" max="2022" min="1950" readonly>
         </div>
 
         <button class="update">Update</button>
@@ -31,6 +32,7 @@ form.addEventListener('submit', (e)=>{
     releasedYear.value = '';
 });
 
+// use event delegation to get the specific element if the user clicked anywhere in the ul and perform the specific action
 movieList.addEventListener('click', (e)=>{
     // console.log(e.target);
 

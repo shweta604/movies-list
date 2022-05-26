@@ -1,3 +1,9 @@
+/* css variable */
+:root{
+    --primary-color: white;
+}
+
+/* general styling */
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +16,7 @@ body{
     text-align: center;
 }
 
+/* form style */
 .form-container{
     display: flex;
     justify-content: center;
@@ -24,13 +31,14 @@ input{
 input[type="submit"]{
     cursor: pointer;
     background: green;
-    color: white;
+    color: var(--primary-color);
 }
 
 input[type="submit"]:hover{
     background: rgba(12, 128, 12, 0.662);
 }
 
+/* movie container */
 .movie-list-container>h2{
     margin: 2em 0 0.5em;
 }
@@ -56,7 +64,7 @@ input[type="submit"]:hover{
     border-radius: 0;
     cursor: pointer;
     background: rgba(91, 36, 36, 0.721);
-    color: white;
+    color: var(--primary-color);
     margin-left: 1em;
 }
 
