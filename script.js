@@ -16,16 +16,11 @@ form.addEventListener('submit', (e)=>{
 
     movieListItem.innerHTML = `
         <div class="movie-info">
-            <h3>
-                ${movieNameInput}
-            </h3>
-            <p>
-                <small>
-                    ${releasedYearInput}
-                </small>
-            </p>
+            <input type="text" value="${movieNameInput}" readonly>                
+            <input type="number" value="${releasedYearInput}" readonly>
         </div>
 
+        <button class="update">Update</button>
         <button class="delete">Delete</button>
     `;
 
@@ -38,10 +33,24 @@ form.addEventListener('submit', (e)=>{
 
 movieList.addEventListener('click', (e)=>{
     // console.log(e.target);
-    
+
     if(e.target.classList.contains('delete')){
         const deleteMovie = e.target.parentElement;
         // console.log(deleteMovie);
         deleteMovie.remove();
-    }
+    } else if(e.target.classList.contains('update')){
+        const changeName = e.target.previousElementSibling.firstElementChild;
+        const changeYear = e.target.previousElementSibling.lastElementChild;
+        // console.log(changeName);
+        changeName.removeAttribute('readonly');
+        changeName.focus();
+        changeYear.removeAttribute('readonly');
+
+        document.addEventListener('keypress', (e)=>{
+            if(e.key == 'Enter'){
+                changeName.setAttribute('readonly', 'readonly');
+                changeYear.setAttribute('readonly', 'readonly');
+            }
+        })
+    } 
 })
