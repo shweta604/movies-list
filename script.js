@@ -44,8 +44,8 @@ function displayMoviesList(){
         del.classList.add('delete');
 
         infoDiv.innerHTML = `
-            <input type="text" value="${movieItem.movie}" readonly>                
-            <input type="number" value="${movieItem.year}" max="2022" min="1950" readonly>`;
+            <input type="text" class="movie" value="${movieItem.movie}" readonly>                
+            <input type="number" class="year" value="${movieItem.year}" max="2022" min="1950" readonly>`;
 
         update.innerHTML = 'EDIT';
         del.innerHTML = 'DELETE';
@@ -62,7 +62,8 @@ function displayMoviesList(){
                 if(update.innerHTML == 'EDIT') {
                     update.innerHTML = 'UPDATE';
                     inputElement.removeAttribute('readonly');
-                    movieItem.inputElement = e.target.value;
+                    inputElement.focus();
+                    movieItem.movie = inputElement.value;
                     localStorage.setItem('movies', JSON.stringify(movies));
                     displayMoviesList();
                 } else {
