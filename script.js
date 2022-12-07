@@ -1,9 +1,8 @@
-var movies = [];
+let movies;
 const form = document.querySelector('.form-container');
 
-
 window.onload = function() {
-    movies = JSON.parse(localStorage.getItem('movies'));
+    movies = JSON.parse(localStorage.getItem('movies'))?JSON.parse(localStorage.getItem('movies')) : [];
 
     // as soon as the page is loaded 
     displayMoviesList();
@@ -30,6 +29,8 @@ function displayMoviesList(){
     const ul = document.querySelector('.movie-list');
 
     ul.innerHTML = '';
+
+    if (movies == null) return;
 
     movies.forEach(movieItem=>{
         const li = document.createElement('li');

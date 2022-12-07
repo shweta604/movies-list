@@ -63,8 +63,11 @@ input[type="submit"]:hover{
 .movie-list li{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     max-width: 900px;
-    padding: 1em;
+    padding: 0.3em 1em;
+    background: white;
+    margin-bottom: 1em;
 }
 
 .movie-list li:hover{
@@ -72,16 +75,17 @@ input[type="submit"]:hover{
 }
 
 .movie-list button{
-    padding: 0 1em;
+    padding: 0.5em 1em;
     border-radius: 0;
     cursor: pointer;
-    background: rgba(91, 36, 36, 0.721);
+    background: rgba(41, 27, 27, 0.703);
     color: var(--primary-color);
     margin-left: 1em;
+    border: none;
 }
 
 .movie-list button:hover{
-    background: red;
+    background: rgb(41, 27, 27, 0.8);
 }
 
 .movie-list input{
