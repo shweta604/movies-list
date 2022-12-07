@@ -9,35 +9,35 @@
     <title>Movies List</title>
 </head>
 <body>
-
-    <section class="form-container">
-        <form>
-            <input type="text" id="movieName" name="movie" placeholder="Enter the movie name" required>
-            <input type="number" id="releasedYear" name="year" placeholder="YYYY" min="1950" max="2022" required>
-            <input type="submit" value="Add Movie">
-        </form>
-    </section>
-
-    <section class="movie-list-container">
-        <h2>
-            Movies List
-        </h2>
-
-        <ul class="movie-list">
-            
-            <!-- movie list will appear here -->
-            <!-- <li>
-                <div class="movie-info">
-                    <input type="text" value="${movieNameInput}" readonly>                
-                    <input type="number" value="${releasedYearInput}" max="2022" min="1950" readonly>
-                </div>
+    <main>
+        <section class="form-container">
+            <form>
+                <input type="text" id="movieName" name="movie" placeholder="Enter the movie name" required>
+                <input type="number" id="releasedYear" name="year" placeholder="YYYY" min="1950" max="2022" required>
+                <input type="submit" value="Add Movie">
+            </form>
+        </section>
     
-                <button class="update">Update</button>
-                <button class="delete">Delete</button>
-            </li> -->
-
-        </ul>
-    </section>
+        <section class="movie-list-container">
+            <h2>
+                Movies List
+            </h2>
     
+            <ul class="movie-list">
+                
+                <!-- movie list will appear here -->
+                <!-- <li>
+                    <div class="movie-info">
+                        <input type="text" value="${movieNameInput}" readonly>                
+                        <input type="number" value="${releasedYearInput}" max="2022" min="1950" readonly>
+                    </div>
+        
+                    <button class="update">Update</button>
+                    <button class="delete">Delete</button>
+                </li> -->
+    
+            </ul>
+        </section>
+    </main>
 </body>
 </html>

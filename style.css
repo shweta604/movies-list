@@ -8,12 +8,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: system-ui, sans-serif;
 }
 
 body{
-    max-width: 450px;
-    margin: 10vh auto;
+    max-width: 500px;
+    margin: 0 auto;
     text-align: center;
+    background: linear-gradient( to right, rgb(150, 209, 150), rgb(143, 95, 95)) no-repeat;
+}
+
+main {
+    padding: 2.5em 0.5em;
+    margin: 1em;
+    min-height: 100vh;
+    background: rgba(228, 219, 219, 0.397);
+    box-shadow: 0 0 5px 2px rgba(245, 245, 245, 0.395);
 }
 
 /* form style */
@@ -26,11 +36,13 @@ input{
     padding: 0.5em;
     font-size: 1rem;
     border-radius: 0;
+    border: none;
+    outline: none;
 }
 
 input[type="submit"]{
     cursor: pointer;
-    background: green;
+    background: rgba(41, 27, 27, 0.703);
     color: var(--primary-color);
 }
 
