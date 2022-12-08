@@ -15,9 +15,9 @@ HTML, CSS, Javascript
 2. Movies list
 - Display a list of all the movies added by user
 
-3. Update Movie
-- update button for each movie to update the movie
-- When the user press enter, it updates the new details
+3. Edit/Update Movie
+- Edit button for each movie to make changes
+- When the user press "update movie", it updates the new details
 
 4. Delete Movie
 - delete button for each movie to delete the movie
