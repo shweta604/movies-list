@@ -1,9 +1,11 @@
 let movies;
 const form = document.querySelector('.form-container');
 
+let movieName = document.getElementById('movieName');
+let releasedYear = document.getElementById('releasedYear');
+
 window.onload = function() {
     movies = JSON.parse(localStorage.getItem('movies'))?JSON.parse(localStorage.getItem('movies')) : [];
-
     // as soon as the page is loaded 
     displayMoviesList();
 }
@@ -16,7 +18,11 @@ form.addEventListener('submit', (e)=>{
         year: e.target.elements.year.value
     };
 
-    movies.push(newMovie);
+    if(movies.some(record => record.movie == newMovie.movie)) {
+        alert('movie already exists!');
+    } else {
+        movies.push(newMovie);
+    }
 
     localStorage.setItem('movies', JSON.stringify(movies));
 
@@ -26,6 +32,9 @@ form.addEventListener('submit', (e)=>{
 });
 
 function displayMoviesList(){
+    // sort movies by year in ascending
+    movies.sort((a, b) => a.year - b.year);
+
     const ul = document.querySelector('.movie-list');
 
     ul.innerHTML = '';
@@ -45,8 +54,8 @@ function displayMoviesList(){
         del.classList.add('delete');
 
         infoDiv.innerHTML = `
-            <input type="text" class="movie" value="${movieItem.movie}" readonly>                
-            <input type="number" class="year" value="${movieItem.year}" max="2022" min="1950" readonly>`;
+            <p class="movie">${movieItem.movie}</p>                
+            <p class="year"><small>${movieItem.year}</small></p>`;
 
         update.innerHTML = 'EDIT';
         del.innerHTML = 'DELETE';
@@ -57,24 +66,30 @@ function displayMoviesList(){
 
         ul.append(li);
 
-        update.addEventListener('click', e=>{
+        update.addEventListener('click', ()=>{
             // console.log('update clicked');
-            const content = infoDiv.querySelectorAll('input').forEach(inputElement=>{
-                if(update.innerHTML == 'EDIT') {
-                    update.innerHTML = 'UPDATE';
-                    inputElement.removeAttribute('readonly');
-                    inputElement.focus();
-                    movieItem.movie = inputElement.value;
-                    localStorage.setItem('movies', JSON.stringify(movies));
-                    displayMoviesList();
-                } else {
-                    inputElement.setAttribute('readonly', true);
-                    update.innerHTML = 'EDIT';
-                }
-            });
+            movies = movies.filter(movie => movie != movieItem);
+            localStorage.setItem('movies', JSON.stringify(movies));
+            
+            // edit movie
+            let addMovie = document.getElementById('add');
+            let saveMovie = document.getElementById('save');
+            movieName.value = movieItem.movie;
+            releasedYear.value = movieItem.year;
+            addMovie.style.display = 'none';
+            saveMovie.style.display = 'inline';
+            
+            // update movie
+            saveMovie.addEventListener('click', () => {
+                movieItem.movie = movieName.value;
+                movieItem.year = releasedYear.year;
+                saveMovie.style.display = 'none';
+                addMovie.style.display = 'inline';
+            })
         });
 
         del.addEventListener('click', ()=>{
+            // console.log('delete clicked!');
             movies = movies.filter(movie => movie != movieItem);
             localStorage.setItem('movies', JSON.stringify(movies));
             displayMoviesList();
